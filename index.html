@@ -6,62 +6,404 @@
 <title>Wu Yuying (Leah) — Design Portfolio 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #fafafa; color: #1a1a1a; font-family: -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif; min-height: 100vh; line-height: 1.6; }
-
-  /* Header */
-  .header { text-align: center; padding: 80px 20px 50px; background: #111; }
-  .header h1 { font-size: 2.8em; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 14px; color: #fff; }
-  .header h1 span { color: #888; font-weight: 400; }
-  .header .subtitle { font-size: 1.05em; color: rgba(255,255,255,0.45); max-width: 560px; margin: 0 auto 20px; line-height: 1.75; font-weight: 300; letter-spacing: 0.2px; }
-  .tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
-  .tag { background: rgba(255,255,255,0.07); color: #999; padding: 7px 18px; border-radius: 24px; font-size: 0.82em; font-weight: 500; border: 1px solid rgba(255,255,255,0.10); letter-spacing: 0.3px; transition: all 0.2s; }
-  .tag:hover { background: rgba(255,255,255,0.13); color: #ccc; }
-
-  /* Download buttons row */
-  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
-  .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: #fff; color: #111; padding: 13px 32px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; transition: all 0.25s; letter-spacing: 0.2px; border: 1px solid transparent; }
-  .btn-primary:hover { transform: scale(1.03); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
-  .btn-secondary { display: inline-flex; align-items: center; gap: 7px; background: transparent; color: #ccc; padding: 13px 32px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; transition: all 0.25s; letter-spacing: 0.2px; border: 1px solid rgba(255,255,255,0.15); }
-  .btn-secondary:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.3); }
-
-  /* Section */
-  .section { padding: 48px 20px; max-width: 900px; margin: 0 auto; }
-  .section-title { font-size: 1.2em; font-weight: 700; margin-bottom: 22px; color: #1a1a1a; border-left: 3px solid #333; padding-left: 14px; letter-spacing: -0.2px; }
-
-  /* PDF viewer */
-  .pdf-container { width: 100%; height: 85vh; border-radius: 10px; overflow: hidden; background: #eee; border: 1px solid #ddd; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-  .pdf-container iframe { width: 100%; height: 100%; border: none; }
-
-  /* Cards */
-  .card { background: #fff; border-radius: 12px; padding: 28px 32px; margin-bottom: 16px; border: 1px solid #eaeaea; transition: all 0.25s ease; }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.08); border-color: #ccc; }
-  .card h3 { font-size: 1.04em; margin-bottom: 11px; color: #111; font-weight: 700; letter-spacing: -0.2px; }
-  .card p { color: #555; line-height: 1.8; font-size: 0.93em; }
-  .card p b { color: #222; }
-
-  /* Profile highlight card */
-  .profile-card { background: linear-gradient(135deg, #111 0%, #222 100%); color: #fff; padding: 36px 36px; border: none; border-radius: 12px; margin-bottom: 16px; }
-  .profile-card:hover { transform: none; border-color: transparent; box-shadow: 0 16px 48px rgba(0,0,0,0.25); }
-  .profile-card p { color: rgba(255,255,255,0.65); line-height: 1.85; font-size: 0.95em; }
-  .profile-card .highlight { color: #bbb; }
-
-  /* Footer */
-  .footer { text-align: center; padding: 32px; color: #999; font-size: 0.82em; border-top: 1px solid #eaeaea; margin-top: 44px; line-height: 1.8; }
-
-  @media (max-width: 600px) {
-    .header { padding: 56px 16px 36px; }
-    .header h1 { font-size: 2em; }
-    .card { padding: 22px 20px; }
-    .pdf-container { height: 70vh; }
-    .section { padding: 32px 16px; }
-    .btn-row { flex-direction: column; align-items: stretch; }
-    .btn-primary, .btn-secondary { justify-content: center; }
+  
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --border: #e8e8e8;
+    --accent: #222222;
+    --dark: #111111;
+    --dark-surface: #1a1a1a;
   }
+
+  body { 
+    background: var(--bg); 
+    color: var(--text-primary); 
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', sans-serif; 
+    min-height: 100vh; 
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .header { 
+    text-align: center; 
+    padding: 80px 24px 56px; 
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .header h1 { 
+    font-size: clamp(2rem, 5vw, 3.2rem); 
+    font-weight: 800; 
+    letter-spacing: -1.5px; 
+    margin-bottom: 12px; 
+    color: #fff;
+    position: relative;
+  }
+  .header h1 span { color: rgba(255,255,255,0.4); font-weight: 400; }
+  .header .subtitle { 
+    font-size: 0.95em; 
+    color: rgba(255,255,255,0.45); 
+    max-width: 520px; 
+    margin: 0 auto 16px; 
+    line-height: 1.7; 
+    font-weight: 300; 
+  }
+  .tags { 
+    display: flex; 
+    gap: 8px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: 24px;
+    position: relative;
+  }
+  .tag { 
+    background: rgba(255,255,255,0.06); 
+    color: rgba(255,255,255,0.6); 
+    padding: 8px 18px; 
+    border-radius: 100px; 
+    font-size: 0.78em; 
+    font-weight: 500; 
+    border: 1px solid rgba(255,255,255,0.08);
+    letter-spacing: 0.3px; 
+    transition: all 0.25s ease;
+  }
+  .tag:hover { 
+    background: rgba(255,255,255,0.12); 
+    color: rgba(255,255,255,0.85);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  /* Download buttons */
+  .btn-row { 
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: 32px; 
+    position: relative;
+  }
+  .btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    padding: 13px 30px; 
+    border-radius: 100px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.85em; 
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+    letter-spacing: 0.2px; 
+    cursor: pointer;
+  }
+  .btn-primary { 
+    background: #fff; 
+    color: var(--dark); 
+    border: 1px solid transparent; 
+  }
+  .btn-primary:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25); 
+  }
+  .btn-secondary { 
+    background: transparent; 
+    color: rgba(255,255,255,0.7); 
+    border: 1px solid rgba(255,255,255,0.15); 
+  }
+  .btn-secondary:hover { 
+    background: rgba(255,255,255,0.08); 
+    color: #fff; 
+    border-color: rgba(255,255,255,0.3); 
+  }
+
+  /* ===== SECTIONS ===== */
+  .section { 
+    padding: 64px 24px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-num {
+    font-size: 0.75em;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--border);
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+  .section-title { 
+    font-size: clamp(1.3rem, 3vw, 1.6rem); 
+    font-weight: 800; 
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+  }
+
+  /* ===== ABOUT CARD ===== */
+  .profile-card { 
+    background: linear-gradient(145deg, var(--dark) 0%, #1f1f1f 100%); 
+    color: #fff; 
+    padding: 44px 40px; 
+    border-radius: 16px; 
+    margin-bottom: 48px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .profile-card p { 
+    color: rgba(255,255,255,0.58); 
+    line-height: 1.9; 
+    font-size: 0.95em;
+    max-width: 720px;
+  }
+  .profile-card b { color: rgba(255,255,255,0.85); }
+
+  /* ===== PROJECT GRID ===== */
+  .part-section { margin-bottom: 64px; }
+  .part-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0 48px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border-color: #ccc;
+  }
+  .project-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover .project-thumb {
+    transform: scale(1.02);
+  }
+  .project-info {
+    padding: 22px 24px 24px;
+  }
+  .project-info h3 {
+    font-size: 1.06em;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+  .project-info .desc {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 0.76em;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .meta-badge {
+    background: #f5f5f5;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .view-hint {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.72em;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all 0.25s ease;
+  }
+  .project-card:hover .view-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== LIGHTBOX / MODAL ===== */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    backdrop-filter: blur(20px);
+    animation: fadeIn 0.25s ease;
+  }
+  .lightbox-overlay.active { display: flex; flex-direction: column; }
+  
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes slideUp { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+  .lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+  .lightbox-title {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+  .lightbox-subtitle {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.82em;
+    margin-left: 12px;
+  }
+  .lightbox-close {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+    transform: rotate(90deg);
+  }
+
+  .lightbox-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .lb-image {
+    max-width: 900px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    animation: slideUp 0.35s ease backwards;
+  }
+  .lb-page-label {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75em;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: -8px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-card {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 36px 40px;
+    border: 1px solid var(--border);
+  }
+  .contact-card h3 {
+    font-size: 1.04em;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .contact-item {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .contact-item b {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer { 
+    text-align: center; 
+    padding: 44px 24px 48px; 
+    color: var(--text-muted); 
+    font-size: 0.82em; 
+    border-top: 1px solid var(--border); 
+    line-height: 1.9;
+    margin-top: 64px;
+  }
+  .footer strong { color: var(--text-secondary); font-weight: 600; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .header { padding: 60px 20px 44px; }
+    .section { padding: 44px 18px; }
+    .section-title { font-size: 1.2rem; }
+    .profile-card { padding: 28px 24px; }
+    .project-grid { grid-template-columns: 1fr; gap: 20px; }
+    .contact-card { padding: 28px 24px; }
+    .lb-image { max-width: 100%; }
+    .lightbox-body { padding: 16px; gap: 12px; }
+    .btn-row { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- ========== HEADER ========== -->
 <div class="header">
   <h1>Wu Yuying <span>(Leah)</span></h1>
   <p class="subtitle">Visual &amp; Storytelling Designer | AI-Augmented Creative Workflow<br>MSc Innovative Multimedia Entertainment — The Hong Kong Polytechnic University</p>
@@ -73,81 +415,322 @@
     <span class="tag">Interactive Media</span>
   </div>
   <div class="btn-row">
-    <a href="./Portfolio_LeahWu_2026.pdf" class="btn-primary" download>&#11015; View Full Portfolio (PDF)</a>
-    <a href="./CV_Wu_Yuying_LEGO_2026.pdf" class="btn-secondary" download>&#11015; Download CV / Resume</a>
+    <a href="./Portfolio_LeahWu_2026.pdf" class="btn btn-primary" download>&#11015; Download Full Portfolio PDF</a>
+    <a href="./CV_Wu_Yuying_LEGO_2026.pdf" class="btn btn-secondary" download>&#11015; Download CV / Resume</a>
   </div>
 </div>
 
-<!-- About -->
+<!-- ========== ABOUT ME ========== -->
 <div class="section">
-  <div class="section-title">About Me</div>
   <div class="profile-card">
-    <p>I am a visual designer and creative storyteller with a passion for <b class="highlight">play-centered design</b>, character creation, and narrative-driven visual experiences.<br><br>
-    Currently completing my Master's degree at The Hong Kong Polytechnic University while interning at Tencent IEG, designing engagement systems and IP assets for <b class="highlight">23,850+ active users</b>. Previously at TikTok (ByteDance), delivering campaign visuals and mascot IP design for global live-streaming events.<br><br>
+    <p>I am a visual designer and creative storyteller with a passion for <b>play-centered design</b>, character creation, and narrative-driven visual experiences.<br><br>
+    Currently completing my Master's degree at The Hong Kong Polytechnic University while interning at <b>Tencent IEG</b> (Tencent's gaming division), designing engagement systems and IP assets for <b>23,850+ active users</b>. Previously at <b>TikTok (ByteDance)</b>, delivering campaign visuals and mascot IP design for global live-streaming events.<br><br>
     I combine traditional craft with AI-augmented workflows — using Claude Code, Figma, ComfyUI, and generative AI to accelerate concept-to-delivery by ~70%. Bilingual in English and Mandarin Chinese.</p>
   </div>
 </div>
 
-<!-- Portfolio PDF -->
+<!-- ========== PART 1 — ACADEMIC PROJECTS ========== -->
 <div class="section">
-  <div class="section-title">Full Portfolio</div>
-  <div class="pdf-container">
-    <iframe src="./Portfolio_LeahWu_2026.pdf" title="Portfolio PDF"></iframe>
+  <div class="part-section">
+    <div class="section-header">
+      <span class="section-num">PART 01</span>
+      <h2 class="section-title">Academic Projects</h2>
+    </div>
+    <div class="project-grid">
+
+      <!-- DANCE SPACE -->
+      <div class="project-card" onclick="openLightbox('dance_space', 'DANCE SPACE', 'Children\'s Toy Brand Concept | Ages 3-6 | CGDA & InAward Nominated')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/dance_space_cover.png" alt="DANCE SPACE" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>DANCE SPACE</h3>
+          <p class="desc">Children's toy brand concept that transforms 2D dance movements into 3D geometric toy products via pull-string mechanisms.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Toy Design</span>
+            <span class="meta-badge">Ages 3–6</span>
+            <span>4 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- God-Man Garden -->
+      <div class="project-card" onclick="openLightbox('god_man_garden', 'God-Man Garden', 'Narrative Walking-Simulator Game | Gender Ideals Exploration')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/god_man_garden_cover.png" alt="God-Man Garden" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>God-Man Garden</h3>
+          <p class="desc">Narrative walking-simulator exploring cultural construction of gender ideals in contemporary China. Multi-ending story with impressionist art direction.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Game Design</span>
+            <span class="meta-badge">Narrative</span>
+            <span>4 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- To Gather -->
+      <div class="project-card" onclick="openLightbox('to_gather', 'To Gather', 'Cross-Disciplinary Collaboration App | Full UX Cycle')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/to_gather_cover.png" alt="To Gather" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>To Gather</h3>
+          <p class="desc">Cross-disciplinary collaboration app. Full UX cycle: user interviews, personas, wireframes, usability testing, high-fidelity UI + design system.</p>
+          <div class="project-meta">
+            <span class="meta-badge">UX/UI</span>
+            <span class="meta-badge">App Design</span>
+            <span>7 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kidnapped Time -->
+      <div class="project-card" onclick="openLightbox('kidnapped_time', 'Kidnapped Time', 'Interactive Light Installation | Screen Time Visualization')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/kidnapped_time_cover.png" alt="Kidnapped Time" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Kidnapped Time</h3>
+          <p class="desc">Interactive light installation visualizing phone screen time as physical "light trails." Built with TouchDesigner + Arduino + Processing.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Installation</span>
+            <span class="meta-badge">Physical Computing</span>
+            <span>4 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Binge Bingo -->
+      <div class="project-card" onclick="openLightbox('binge_bingo', 'Binge, Bingo!', 'Empowering Design for Binge Eating Disorder')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/binge_bingo_cover.png" alt="Binge Bingo" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Binge, Bingo!</h3>
+          <p class="desc">Empowering design experience addressing binge eating disorder through first-person perspective storytelling and interactive engagement.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Social Impact</span>
+            <span class="meta-badge">Experience</span>
+            <span>3 pages</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== PART 2 — TENCENT IEG ========== -->
+  <div class="part-divider"></div>
+  <div class="part-section">
+    <div class="section-header">
+      <span class="section-num">PART 02</span>
+      <h2 class="section-title">Tencent IEG Internship</h2>
+    </div>
+    <p style="color:#777;font-size:0.92em;margin-bottom:28px;line-height:1.7;">
+      <b>Tencent IEG</b> (Interactive Entertainment Group) is Tencent's gaming and digital entertainment division — behind global titles including Honor of Kings, PUBG Mobile, League of Legends, and CrossFire.
+    </p>
+    <div class="project-grid">
+
+      <!-- Sticker System -->
+      <div class="project-card" onclick="openLightbox('sticker_system', 'Xinyue Club Sticker System', '3D Sticker System | 21 Assets | +27.47% Usage | 23,850+ Users')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/sticker_system_cover.png" alt="Sticker System" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Xinyue Club Sticker System</h3>
+          <p class="desc">Designed & launched a full 3D sticker system of 21 unique assets across emotional narratives. Achieved <b>+27.47% usage increase</b>, 98.32% positive rating.</p>
+          <div class="project-meta">
+            <span class="meta-badge">IP Design</span>
+            <span class="meta-badge">3D Assets</span>
+            <span class="meta-badge">AI Pipeline</span>
+            <span>5 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge System -->
+      <div class="project-card" onclick="openLightbox('badge_system', 'Honor Badge System', 'Multi-Game Visual Framework | Battle Royale · MMORPG · Casual')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/badge_system_cover.png" alt="Badge System" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Honor Badge System</h3>
+          <p class="desc">Leading multi-game visual style frameworks across battle royale, MMORPG, and casual mobile genres. Defining badge hierarchies, rarity systems, and progression mechanics.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Design System</span>
+            <span class="meta-badge">Gamification</span>
+            <span class="meta-badge">Multi-Genre</span>
+            <span>13 pages</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== PART 3 — TIKTOK ========== -->
+  <div class="part-divider"></div>
+  <div class="part-section">
+    <div class="section-header">
+      <span class="section-num">PART 03</span>
+      <h2 class="section-title">TikTok Internship (ByteDance)</h2>
+    </div>
+    <div class="project-grid">
+
+      <!-- LIVE Fest -->
+      <div class="project-card" onclick="openLightbox('live_fest', 'LIVE Fest End-of-Year', 'Global Live Event | 10M+ Viewers | 14+ Key Visuals')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/live_fest_cover.png" alt="LIVE Fest" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>LIVE Fest EOY</h3>
+          <p class="desc">Led end-to-end visual design for global live-streaming event serving 10M+ viewers. 14+ key visuals, campaign pages, and environmental graphics.</p>
+          <div class="project-meta">
+            <span class="meta-brand">Campaign Visuals</span>
+            <span class="meta-badge">Branding</span>
+            <span class="meta-badge">Motion</span>
+            <span>8 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Christmas Campaign -->
+      <div class="project-card" onclick="openLightbox('christmas_campaign', 'Christmas — Flip Your Luck', '$10M Prize Pool | 6-Screen Flow | 3D Flip Animation')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/christmas_campaign_cover.png" alt="Christmas Campaign" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Christmas — Flip Your Luck</h3>
+          <p class="desc">Gamified card-flip campaign with $10M prize pool. 6-screen flow with signature 3D flip animation, retention-driven design system.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Gamification</span>
+            <span class="meta-badge">Interaction</span>
+            <span class="meta-badge">Animation</span>
+            <span>13 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Claw -->
+      <div class="project-card" onclick="openLightbox('open_claw', 'Open Claw', 'Internal AI Content Tool | ComfyUI Node-Based Workflow')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/open_claw_cover.png" alt="Open Claw" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Open Claw</h3>
+          <p class="desc">Internal AI content creation tool with ComfyUI node-based workflow integration. Interface design, output management, and batch processing features.</p>
+          <div class="project-meta">
+            <span class="meta-badge">AI Tool</span>
+            <span class="meta-badge">ComfyUI</span>
+            <span class="meta-badge">Workflow</span>
+            <span>12 pages</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== PART 4 — PERSONAL ========== -->
+  <div class="part-divider"></div>
+  <div class="part-section">
+    <div class="section-header">
+      <span class="section-num">PART 04</span>
+      <h2 class="section-title">School &amp; Personal Projects</h2>
+    </div>
+    <div class="project-grid">
+
+      <!-- Pet-Pop -->
+      <div class="project-card" onclick="openLightbox('pet_pop', 'Pet-Pop', 'Pet Influencer Platform | AI Agent Integration | Beta Testing')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/pet_pop_cover.png" alt="Pet-Pop" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Pet-Pop</h3>
+          <p class="desc">Full pet influencer platform integrating AI Agent capabilities for content creation and management. Vibe Coding workflow: Claude Code + Figma Make + Gemini. Currently in beta testing.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Full App</span>
+            <span class="meta-badge">AI Agent</span>
+            <span class="meta-badge">Vibe Coding</span>
+            <span>18 pages</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end section -->
+
+<!-- ========== CONTACT ========== -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">CONTACT</span>
+  </div>
+  <div class="contact-card">
+    <div class="contact-grid">
+      <div class="contact-item"><b>Email:</b><br>qiaolichocolate@gmail.com</div>
+      <div class="contact-item"><b>Phone:</b><br>+86 151-9870-3054</div>
+      <div class="contact-item"><b>Location:</b><br>Shenzhen / Hong Kong<br>Available remote or on-site in Denmark</div>
+      <div class="contact-item"><b>Education:</b><br>MSc TIME — PolyU (QS #57) — Expected Mar 2027<br>B.Des. Sichuan Fine Arts Institute — Top 3 / GPA 88.5</div>
+    </div>
   </div>
 </div>
 
-<!-- Project Overview -->
-<div class="section">
-  <div class="section-title">What's Inside</div>
-
-  <!-- Part 1: Academic Projects -->
-  <div class="card">
-    <h3>Part 1 — Academic Projects</h3>
-    <p><b>DANCE SPACE</b> — Children's toy brand concept for ages 3-6. 200+ user tests, CGDA & InAward nominated. Transforms 2D dance movement into 3D geometric toy product lines via pull-string mechanisms.<br><br>
-    <b>God-Man Garden</b> — Narrative walking-simulator game exploring cultural construction of gender ideals in contemporary China. 7 character archetypes, impressionist art direction, multi-ending story structure.<br><br>
-    <b>To Gather</b> — Cross-disciplinary collaboration app. Full UX cycle: user interviews, personas, wireframes, usability testing, high-fidelity UI + design system.<br><br>
-    <b>Kidnapped Time</b> — Interactive light installation visualizing phone screen time as physical "light trails." Built with TouchDesigner + Arduino + Processing.</p>
-  </div>
-
-  <!-- Part 2: Tencent IEG Internship -->
-  <div class="card">
-    <h3>Part 2 — Tencent IEG Internship</h3>
-    <p><b>Tencent IEG</b> (Interactive Entertainment Group / 腾讯互动娱乐) is Tencent's <b>gaming and digital entertainment division</b>, responsible for global game titles such as Honor of Kings, PUBG Mobile, League of Legends, and CrossFire. As a design intern within the Xinyue Club team, I worked on engagement-driven visual systems serving millions of gaming community users.<br><br>
-    <b>Xinyue Club Sticker System</b> — Designed & launched a full 3D sticker system of <b>21 unique assets</b> across distinct emotional narratives for a premium gaming community platform. Achieved <b>+27.47% usage increase</b> post-launch across 23,850+ active users with 98.32% positive rating. End-to-end ownership: concept, style definition, AI-assisted production pipeline, and launch.<br><br>
-    <b>Honor Badge System</b> — Leading multi-game visual style frameworks spanning <b>battle royale, MMORPG, and casual mobile</b> genres. Defining complete badge hierarchies, rarity tier systems, and gamified progression mechanics that reward player loyalty across different game ecosystems.</p>
-  </div>
-
-  <!-- Part 3: TikTok Internship -->
-  <div class="card">
-    <h3>Part 3 — TikTok Internship (ByteDance)</h3>
-    <p><b>LIVE Fest EOY</b> — Led end-to-end visual design for global live-streaming event serving 10M+ viewers. 14+ key visuals across multiple themes, UI campaign pages, and environmental graphics.<br><br>
-    <b>Christmas Campaign — Flip Your Luck ($10M Prize Pool)</b> — Gamified card-flip campaign with 6-screen flow, 3D flip animation signature, retention-driven design system.<br><br>
-    <b>Open Claw</b> — Internal AI content creation tool with ComfyUI node-based workflow integration.</p>
-  </div>
-
-  <!-- Part 4: School & Personal Projects -->
-  <div class="card">
-    <h3>Part 4 — School &amp; Personal Projects</h3>
-    <p><b>Pet-Pop (Pet Influencer Platform)</b> — Full app experience integrating AI Agent capabilities for pet content creation and management. Vibe Coding workflow: Claude Code + Figma Make + Gemini. Currently in beta testing with active users.<br><br>
-    <b>TikTok Mascot IP "the bird"</b> — Original mascot character design adopted as TikTok Live campaign signature identity. Recognized by senior leadership.</p>
-  </div>
-
-  <!-- Contact -->
-  <div class="card">
-    <h3>Contact</h3>
-    <p><b>Email:</b> qiaolichocolate@gmail.com<br>
-    <b>Phone:</b> +86 151-9870-3054<br>
-    <b>Location:</b> Shenzhen / Hong Kong | Available for remote or on-site in Denmark<br>
-    <b>Education:</b> MSc Innovative Multimedia Entertainment (TIME)<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;The Hong Kong Polytechnic University | QS #57 | Expected Mar 2027<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;B.Des. Sichuan Fine Arts Institute | Top 3 of cohort | GPA 88.5/100</p>
-  </div>
-</div>
-
+<!-- ========== FOOTER ========== -->
 <div class="footer">
-  <p>For LEGO Creative Play Lab — Story Innovation Internship Application 2026</p>
-  <p>Awards: National Scholarship x3 &middot; CGDA Design Award &middot; InAward International Design Prize &middot; Top 3 Graduate</p>
+  <p><strong>For LEGO Creative Play Lab — Story Innovation Internship Application 2026</strong></p>
+  <p style="margin-top:8px;">National Scholarship x3 &middot; CGDA Design Award &middot; InAward International Design Prize &middot; Top 3 Graduate</p>
 </div>
+
+<!-- ========== LIGHTBOX ========== -->
+<div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-header">
+    <div>
+      <span class="lightbox-title" id="lbTitle">Project Title</span>
+      <span class="lightbox-subtitle" id="lbSubtitle">Description</span>
+    </div>
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  </div>
+  <div class="lightbox-body" id="lbBody">
+    <!-- Images loaded dynamically -->
+  </div>
+</div>
+
+<script>
+// Project page counts (must match actual images)
+const projects = {
+  dance_space:         4,
+  god_man_garden:      4,
+  to_gather:           7,
+  kidnapped_time:      4,
+  binge_bingo:         3,
+  sticker_system:      5,
+  badge_system:       13,
+  christmas_campaign: 13,
+  open_claw:          12,
+  live_fest:           8,
+  pet_pop:            18
+};
+
+function openLightbox(id, title, subtitle) {
+  const lb = document.getElementById('lightbox');
+  const body = document.getElementById('lbBody');
+  document.getElementById('lbTitle').textContent = title;
+  document.getElementById('lbSubtitle').textContent = subtitle;
+
+  const count = projects[id] || 4;
+  let html = '';
+  for (let i = 0; i < count; i++) {
+    html += `<img src="images/${id}_${i}.png" alt="${title} Page ${i+1}" class="lb-image" loading="lazy" style="animation-delay:${i*0.05}s">`;
+    if (count > 1 && i < count - 1) html += `<div class="lb-page-label">&#8212; ${i+1} / ${count} &#8212;</div>`;
+  }
+  body.innerHTML = html;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Keyboard shortcut
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
 
 </body>
 </html>
