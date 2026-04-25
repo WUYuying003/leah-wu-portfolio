@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leah Wu — Design Portfolio 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; color: #fff; font-family: -apple-system, 'SF Pro Display', 'Segoe UI', sans-serif; min-height: 100vh; }
+  .header { text-align: center; padding: 60px 20px 40px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .header h1 { font-size: 2.4em; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+  .header h1 span { color: #e94560; }
+  .header p { font-size: 1.1em; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 24px; line-height: 1.6; }
+  .tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+  .tag { background: rgba(233,69,96,0.15); color: #e94560; padding: 6px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 500; border: 1px solid rgba(233,69,96,0.3); }
+  .section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 1.3em; font-weight: 600; margin-bottom: 20px; color: rgba(255,255,255,0.9); border-left: 3px solid #e94560; padding-left: 14px; }
+  .card { background: #151520; border-radius: 16px; padding: 32px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.2s, border-color 0.2s; }
+  .card:hover { transform: translateY(-2px); border-color: rgba(233,69,96,0.3); }
+  .card h3 { font-size: 1.15em; margin-bottom: 10px; color: #fff; }
+  .card p { color: rgba(255,255,255,0.6); line-height: 1.7; font-size: 0.95em; }
+  .btn-primary { display: inline-block; background: #e94560; color: #fff; padding: 14px 36px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1em; margin-top: 16px; transition: all 0.2s; }
+  .btn-primary:hover { background: #c73e54; transform: scale(1.03); box-shadow: 0 8px 25px rgba(233,69,96,0.35); }
+  .pdf-container { width: 100%; height: 85vh; border-radius: 12px; overflow: hidden; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08); }
+  .pdf-container iframe { width: 100%; height: 100%; border: none; }
+  .footer { text-align: center; padding: 30px; color: rgba(255,255,255,0.35); font-size: 0.85em; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px; }
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.7em; }
+    .card { padding: 20px; }
+    .pdf-container { height: 70vh; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Leah <span>Wu</span></h1>
+  <p>UI/UX Designer &amp; Visual Storyteller — Design Portfolio 2026</p>
+  <div class="tags">
+    <span class="tag">UI/UX Design</span>
+    <span class="tag">Visual Design</span>
+    <span class="tag">AIGC &amp; AI Workflow</span>
+    <span class="tag">Brand &amp; Play</span>
+    <span class="tag">Interactive Media</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">View Full Portfolio PDF</div>
+  <div class="pdf-container">
+    <iframe src="./Portfolio_LeahWu_2026.pdf" title="Portfolio PDF"></iframe>
+  </div>
+  <div style="text-align:center; margin-top: 18px;">
+    <a href="./Portfolio_LeahWu_2026.pdf" class="btn-primary" download>Download Full Portfolio (PDF)</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">What is Inside</div>
+
+  <!-- Part 1: Academic Projects -->
+  <div class="card">
+    <h3>Part 1 — Academic Projects</h3>
+    <p><b>DANCE SPACE</b> — Children's toy brand concept. 200+ user tests. CGDA and InAward nominated. From 2D dance movement to 3D geometric toy product lines.<br><br>
+    <b>God-Man Garden</b> — Narrative walking-simulator game concept with 7 character archetypes, impressionist art direction, multi-ending story structure.<br><br>
+    <b>To Gather</b> — Cross-disciplinary collaboration app with full UX research (15 interviews, personas, IA, usability testing).<br><br>
+    <b>Kidnapped Time</b> — Interactive light installation with TouchDesigner + Arduino + Processing.</p>
+  </div>
+
+  <!-- Part 2: Tencent IEG Internship -->
+  <div class="card">
+    <h3>Part 2 — Tencent IEG Internship</h3>
+    <p><b>Xinyue Club Sticker System</b> — 21 sets of 3D dynamic stickers driving +37.75% engagement. Led the full design cycle from research through delivery.<br><br>
+    <b>Honor Badge System</b> — 6-tier achievement framework (Bronze to Legendary) with gamified progression mechanics.</p>
+  </div>
+
+  <!-- Part 3: TikTok Internship -->
+  <div class="card">
+    <h3>Part 3 — TikTok Internship</h3>
+    <p><b>LIVE FEST EOY</b> — Year-end live streaming event serving 10M+ viewers. Multi-view theater UI, engagement widgets, motion design system.<br><br>
+    <b>Christmas Campaign — Flip Your Luck ($10M Prize Pool)</b> — Gamified card-flip campaign with 6-screen flow, 3D flip animation signature, retention-driven design.<br><br>
+    <b>Open Claw</b> — Internal AI content creation tool with ComfyUI integration.</p>
+  </div>
+
+  <!-- Part 4: School & Personal Projects -->
+  <div class="card">
+    <h3>Part 4 — School &amp; Personal Projects</h3>
+    <p><b>Pet-Pop</b> — Pet influencer platform with AI-powered content creation pipeline. Beta testing with active users.</p>
+  </div>
+
+  <div class="card">
+    <h3>Contact</h3>
+    <p><b>Email:</b> qiaolichocolate@gmail.com<br>
+    <b>Education:</b> MSc TIME, The Hong Kong Polytechnic University (Top 3%, QS #53)</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>For LEGO Creative Play Lab — Story Innovation Internship Application 2026</p>
+  <p>Copyright 2026 Leah Wu. All design work is my own unless credited otherwise.</p>
+</div>
+
+</body>
+</html>
