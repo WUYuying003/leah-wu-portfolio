@@ -243,6 +243,7 @@
     font-size: 0.76em;
     color: var(--text-muted);
     font-weight: 500;
+    flex-wrap: wrap;
   }
   .meta-badge {
     background: #f5f5f5;
@@ -346,6 +347,15 @@
     letter-spacing: 1px;
     margin-top: -8px;
   }
+  
+  .lb-part-label {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    letter-spacing: -0.3px;
+    text-align: center;
+  }
 
   /* ===== CONTACT ===== */
   .contact-card {
@@ -435,7 +445,7 @@
   </div>
 </div>
 
-<!-- ========== PART 1 — ACADEMIC PROJECTS ========== -->
+<!-- ========== PART 01 — ACADEMIC PROJECTS ========== -->
 <div class="section">
   <div class="part-section">
     <div class="section-header">
@@ -444,47 +454,47 @@
     </div>
     <div class="project-grid">
 
-      <!-- DANCE SPACE -->
-      <div class="project-card" onclick="openLightbox('dance_space', 'DANCE SPACE', 'Children\'s Toy Brand Concept | Ages 3-6 | CGDA & InAward Nominated')">
+      <!-- DANCE SPACE (merged: EN + CN) -->
+      <div class="project-card" onclick="openLightbox('dance_space', 'DANCE SPACE', 'Children\'s Toy Brand Concept | CGDA & InAward Nominated')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/dance_space_cover.png" alt="DANCE SPACE" class="project-thumb" loading="lazy">
         <div class="project-info">
           <h3>DANCE SPACE</h3>
-          <p class="desc">Children's toy brand concept that transforms 2D dance movements into 3D geometric toy products via pull-string mechanisms.</p>
+          <p class="desc">Children's toy brand concept that transforms 2D dance movements into 3D geometric toy products via pull-string mechanisms. Includes undergraduate thesis (Chinese version) with extended research.</p>
           <div class="project-meta">
             <span class="meta-badge">Toy Design</span>
             <span class="meta-badge">Ages 3–6</span>
-            <span>4 pages</span>
+            <span>9 pages</span>
           </div>
         </div>
       </div>
 
-      <!-- God-Man Garden -->
-      <div class="project-card" onclick="openLightbox('god_man_garden', 'God-Man Garden', 'Narrative Walking-Simulator Game | Gender Ideals Exploration')">
+      <!-- God-Man Garden (merged: original + game UI) -->
+      <div class="project-card" onclick="openLightbox('god_man_garden', 'God-Man Garden', 'Narrative Walking-Simulator | Gender Ideals Exploration')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/god_man_garden_cover.png" alt="God-Man Garden" class="project-thumb" loading="lazy">
         <div class="project-info">
           <h3>God-Man Garden</h3>
-          <p class="desc">Narrative walking-simulator exploring cultural construction of gender ideals in contemporary China. Multi-ending story with impressionist art direction.</p>
+          <p class="desc">Narrative walking-simulator exploring cultural construction of gender ideals in contemporary China. Multi-ending story with impressionist art direction. Includes playable game interface screens.</p>
           <div class="project-meta">
             <span class="meta-badge">Game Design</span>
             <span class="meta-badge">Narrative</span>
-            <span>4 pages</span>
+            <span>9 pages</span>
           </div>
         </div>
       </div>
 
-      <!-- To Gather -->
+      <!-- To Gather (merged: original + deep research) -->
       <div class="project-card" onclick="openLightbox('to_gather', 'To Gather', 'Cross-Disciplinary Collaboration App | Full UX Cycle')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/to_gather_cover.png" alt="To Gather" class="project-thumb" loading="lazy">
         <div class="project-info">
           <h3>To Gather</h3>
-          <p class="desc">Cross-disciplinary collaboration app. Full UX cycle: user interviews, personas, wireframes, usability testing, high-fidelity UI + design system.</p>
+          <p class="desc">Cross-disciplinary collaboration app. Full UX cycle: user interviews, personas, wireframes, usability testing, high-fidelity UI + design system. Extended with deeper user research documentation.</p>
           <div class="project-meta">
             <span class="meta-badge">UX/UI</span>
             <span class="meta-badge">App Design</span>
-            <span>7 pages</span>
+            <span>15 pages</span>
           </div>
         </div>
       </div>
@@ -519,10 +529,40 @@
         </div>
       </div>
 
+      <!-- Ocean Diversity Conference (NEW) -->
+      <div class="project-card" onclick="openLightbox('ocean_diversity', 'Ocean Diversity Conference', 'Creative Programming & Brand Extension Design')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/ocean_diversity_cover.png" alt="Ocean Diversity" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Ocean Diversity Conference</h3>
+          <p class="desc">Creative programming + brand extension design for Ocean Diversity Conference 2024. Key visual posters, event branding, schedule system, and environmental graphics.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Branding</span>
+            <span class="meta-badge">Event Design</span>
+            <span>4 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book Design (NEW) -->
+      <div class="project-card" onclick="openLightbox('book_design', 'Book Design', 'Editorial Layout & Typography System')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/book_design_cover.png" alt="Book Design" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Book Design</h3>
+          <p class="desc">Editorial book design project featuring typography system development, grid-based layout, print production considerations, and cover-to-cover narrative flow.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Editorial</span>
+            <span class="meta-badge">Typography</span>
+            <span>5 pages</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ========== PART 2 — TENCENT IEG ========== -->
+  <!-- ========== PART 02 — TENCENT IEG ========== -->
   <div class="part-divider"></div>
   <div class="part-section">
     <div class="section-header">
@@ -534,21 +574,18 @@
     </p>
     <div class="project-grid">
 
-      <!-- Tencent IEG — Single Merged Project -->
-      <div class="project-card" data-wide="true" onclick="openLightbox('tencent_ieg', 'Tencent IEG Internship', 'Xinyue Club Sticker System + Honor Badge System | Gaming Community Design')">
+      <!-- Tencent Sticker System ONLY (no more badge system) -->
+      <div class="project-card" data-wide="true" onclick="openLightbox('tencent_sticker', 'Tencent IEG — Xinyue Club Sticker System', '3D Sticker Design | AI-Augmented Pipeline | Gaming Community')">
         <span class="view-hint">View Project &#8599;</span>
-        <img src="images/tencent_ieg_cover.png" alt="Tencent IEG" class="project-thumb" loading="lazy">
+        <img src="images/tencent_sticker_cover.png" alt="Tencent Sticker" class="project-thumb" loading="lazy">
         <div class="project-info">
-          <h3>Tencent IEG Internship</h3>
-          <p class="desc"><b>Xinyue Club Sticker System</b> — Designed & launched a full 3D sticker system of 21 unique assets across emotional narratives. Achieved <b>+27.47% usage increase</b>, <b>98.32% positive rating</b>, 23,850+ active users.<br><br>
-          <b>Honor Badge System</b> — Leading multi-game visual style frameworks across battle royale, MMORPG, and casual mobile genres. Defining badge hierarchies, rarity systems, and gamified progression mechanics.</p>
+          <h3>Xinyue Club Sticker System</h3>
+          <p class="desc">Designed & launched a full 3D sticker system of <b>21 unique assets</b> across emotional narratives for the Xinyue Club gaming community. Achieved <b>+27.47% usage increase</b>, <b>98.32% positive rating</b>, serving <b>23,850+ active users</b>. Full AI-augmented workflow from concept to delivery.</p>
           <div class="project-meta">
             <span class="meta-badge">IP Design</span>
             <span class="meta-badge">3D Assets</span>
-            <span class="meta-badge">Design System</span>
-            <span class="meta-badge">Gamification</span>
             <span class="meta-badge">AI Pipeline</span>
-            <span>18 pages</span>
+            <span>17 pages</span>
           </div>
         </div>
       </div>
@@ -556,7 +593,7 @@
     </div>
   </div>
 
-  <!-- ========== PART 3 — TIKTOK ========== -->
+  <!-- ========== PART 03 — TIKTOK ========== -->
   <div class="part-divider"></div>
   <div class="part-section">
     <div class="section-header">
@@ -566,33 +603,31 @@
     <div class="project-grid">
 
       <!-- LIVE Fest -->
-      <div class="project-card" onclick="openLightbox('live_fest', 'LIVE Fest End-of-Year', 'Global Live Event | 10M+ Viewers | 14+ Key Visuals')">
+      <div class="project-card" onclick="openLightbox('live_fest', 'LIVE Fest End-of-Year', 'Global Live Event | 10M+ Viewers | Key Visuals')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/live_fest_cover.png" alt="LIVE Fest" class="project-thumb" loading="lazy">
         <div class="project-info">
           <h3>LIVE Fest EOY</h3>
-          <p class="desc">Led end-to-end visual design for global live-streaming event serving 10M+ viewers. 14+ key visuals, campaign pages, and environmental graphics.</p>
+          <p class="desc">Led end-to-end visual design for global live-streaming event serving 10M+ viewers across regions. Key visuals, campaign pages, and environmental graphics.</p>
           <div class="project-meta">
-            <span class="meta-brand">Campaign Visuals</span>
+            <span class="meta-badge">Campaign Visuals</span>
             <span class="meta-badge">Branding</span>
-            <span class="meta-badge">Motion</span>
             <span>8 pages</span>
           </div>
         </div>
       </div>
 
-      <!-- Christmas Campaign -->
-      <div class="project-card" onclick="openLightbox('christmas_campaign', 'Christmas — Flip Your Luck', '$10M Prize Pool | 6-Screen Flow | 3D Flip Animation')">
+      <!-- Christmas Campaign (CORRECTED: 5 pages, not 13) -->
+      <div class="project-card" onclick="openLightbox('christmas_campaign', 'Christmas — Flip Your Luck', '$10M Prize Pool | 3D Flip Animation')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/christmas_campaign_cover.png" alt="Christmas Campaign" class="project-thumb" loading="lazy">
         <div class="project-info">
           <h3>Christmas — Flip Your Luck</h3>
-          <p class="desc">Gamified card-flip campaign with $10M prize pool. 6-screen flow with signature 3D flip animation, retention-driven design system.</p>
+          <p class="desc">Gamified card-flip campaign with $10M prize pool. Signature 3D flip animation, retention-driven interaction design.</p>
           <div class="project-meta">
             <span class="meta-badge">Gamification</span>
             <span class="meta-badge">Interaction</span>
-            <span class="meta-badge">Animation</span>
-            <span>13 pages</span>
+            <span>5 pages</span>
           </div>
         </div>
       </div>
@@ -616,16 +651,16 @@
     </div>
   </div>
 
-  <!-- ========== PART 4 — PERSONAL ========== -->
+  <!-- ========== PART 04 — PERSONAL & RESEARCH ========== -->
   <div class="part-divider"></div>
   <div class="part-section">
     <div class="section-header">
       <span class="section-num">PART 04</span>
-      <h2 class="section-title">School &amp; Personal Projects</h2>
+      <h2 class="section-title">Personal Projects & Research</h2>
     </div>
     <div class="project-grid">
 
-      <!-- Pet-Pop -->
+      <!-- Pet-Pop (CORRECTED: 7 pages, not 18) -->
       <div class="project-card" onclick="openLightbox('pet_pop', 'Pet-Pop', 'Pet Influencer Platform | AI Agent Integration | Beta Testing')">
         <span class="view-hint">View Project &#8599;</span>
         <img src="images/pet_pop_cover.png" alt="Pet-Pop" class="project-thumb" loading="lazy">
@@ -636,7 +671,37 @@
             <span class="meta-badge">Full App</span>
             <span class="meta-badge">AI Agent</span>
             <span class="meta-badge">Vibe Coding</span>
-            <span>18 pages</span>
+            <span>7 pages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Workflow Research (NEW) -->
+      <div class="project-card" onclick="openLightbox('ai_workflow', 'AI Workflow Research', 'AI-Augmented Creative Process | Tool Integration Study')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/ai_workflow_cover.png" alt="AI Workflow" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>AI Workflow Research</h3>
+          <p class="desc">Research on AI-augmented creative workflows: Copilot + Claude + VS Code integration patterns, prompt engineering strategies, and human-AI collaboration frameworks for design production.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Research</span>
+            <span class="meta-badge">AIGC</span>
+            <span>1 page</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Jam (NEW) -->
+      <div class="project-card" onclick="openLightbox('gamejam', 'Game Jam — Error Echo', 'Narrative Puzzle Game | itch.io | 48hr Challenge')">
+        <span class="view-hint">View Project &#8599;</span>
+        <img src="images/gamejam_cover.png" alt="Game Jam" class="project-thumb" loading="lazy">
+        <div class="project-info">
+          <h3>Error Echo — Game Jam</h3>
+          <p class="desc">Narrative puzzle game created during a 48-hour game jam challenge. Published on itch.io platform. Explores error messages as storytelling devices through interactive gameplay.</p>
+          <div class="project-meta">
+            <span class="meta-badge">Game Dev</span>
+            <span class="meta-badge">Rapid Prototyping</span>
+            <span>1 page</span>
           </div>
         </div>
       </div>
@@ -682,21 +747,50 @@
 </div>
 
 <script>
-  // Project page counts (must match actual images)
+  // ===== PROJECT DATA =====
+  // Each project maps to actual image files in images/{id}_cover.png + images/{id}_{N}.png
+  // Merged projects combine multiple sub-parts under one lightbox view
   const projects = {
-    dance_space:         4,
-    god_man_garden:      4,
-    to_gather:           7,
+
+    // --- Part 1: Academic ---
+    dance_space: {
+      type: 'merged',
+      parts: [
+        { id: 'dance_space', count: 4, label: 'DANCE SPACE (English)' },
+        { id: 'dance_space_cn', count: 5, label: 'Dance Space 中文版（本科毕设）' },
+      ]
+    },
+    god_man_garden: {
+      type: 'merged',
+      parts: [
+        { id: 'god_man_garden', count: 4, label: 'God-Man Garden' },
+        { id: 'gmg_game', count: 5, label: 'God-Man Garden 游戏界面' },
+      ]
+    },
+    to_gather: {
+      type: 'merged',
+      parts: [
+        { id: 'to_gather', count: 7, label: 'To Gather' },
+        { id: 'to_gather_extra', count: 8, label: 'To Gather 深度研究' },
+      ]
+    },
     kidnapped_time:      4,
     binge_bingo:         3,
-    tencent_ieg:         { type: 'merged', parts: [
-      { id: 'sticker_system', count: 5, label: 'Xinyue Club Sticker System' },
-      { id: 'badge_system',  count: 13, label: 'Honor Badge System' }
-    ]},
-    christmas_campaign: 13,
-    open_claw:          12,
+    ocean_diversity:     4,
+    book_design:         5,
+
+    // --- Part 2: Tencent ---
+    tencent_sticker:     17,
+
+    // --- Part 3: TikTok ---
     live_fest:           8,
-    pet_pop:            18
+    christmas_campaign:  5,
+    open_claw:           12,
+
+    // --- Part 4: Personal ---
+    pet_pop:             7,
+    ai_workflow:         1,
+    gamejam:             1,
   };
 
 function openLightbox(id, title, subtitle) {
@@ -713,15 +807,16 @@ function openLightbox(id, title, subtitle) {
     let total = 0;
     proj.parts.forEach((part, pi) => {
       if (pi > 0) {
-        html += `<div style="color:#fff;font-size:1em;font-weight:700;margin:40px 0 16px;letter-spacing:-0.3px;">&#8212; ${part.label} &#8212;</div>`;
+        html += `<div class="lb-part-label">&#8212; ${part.label} &#8212;</div>`;
       }
       for (let i = 0; i < part.count; i++) {
         total++;
-        html += `<img src="images/${part.id}_${i}.png" alt="${title} Page ${total}" class="lb-image" loading="lazy" style="animation-delay:${total*0.04}s">`;
+        html += `<img src="images/${part.id}_${i}.png" alt="${title}" class="lb-image" loading="lazy" style="animation-delay:${total*0.04}s">`;
         if (i < part.count - 1) html += `<div class="lb-page-label">${i+1} / ${part.count}</div>`;
       }
     });
   } else {
+    // Simple project
     const count = proj || 4;
     for (let i = 0; i < count; i++) {
       html += `<img src="images/${id}_${i}.png" alt="${title} Page ${i+1}" class="lb-image" loading="lazy" style="animation-delay:${i*0.05}s">`;
