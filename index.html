@@ -211,6 +211,12 @@
     display: block;
     transition: transform 0.4s ease;
   }
+  /* Wide banner covers (like Tencent) use object-fit: contain with dark bg */
+  .project-card[data-wide="true"] .project-thumb {
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: #fff5d6;
+  }
   .project-card:hover .project-thumb {
     transform: scale(1.02);
   }
@@ -528,34 +534,21 @@
     </p>
     <div class="project-grid">
 
-      <!-- Sticker System -->
-      <div class="project-card" onclick="openLightbox('sticker_system', 'Xinyue Club Sticker System', '3D Sticker System | 21 Assets | +27.47% Usage | 23,850+ Users')">
+      <!-- Tencent IEG — Single Merged Project -->
+      <div class="project-card" data-wide="true" onclick="openLightbox('tencent_ieg', 'Tencent IEG Internship', 'Xinyue Club Sticker System + Honor Badge System | Gaming Community Design')">
         <span class="view-hint">View Project &#8599;</span>
-        <img src="images/sticker_system_cover.png" alt="Sticker System" class="project-thumb" loading="lazy">
+        <img src="images/tencent_ieg_cover.png" alt="Tencent IEG" class="project-thumb" loading="lazy">
         <div class="project-info">
-          <h3>Xinyue Club Sticker System</h3>
-          <p class="desc">Designed & launched a full 3D sticker system of 21 unique assets across emotional narratives. Achieved <b>+27.47% usage increase</b>, 98.32% positive rating.</p>
+          <h3>Tencent IEG Internship</h3>
+          <p class="desc"><b>Xinyue Club Sticker System</b> — Designed & launched a full 3D sticker system of 21 unique assets across emotional narratives. Achieved <b>+27.47% usage increase</b>, <b>98.32% positive rating</b>, 23,850+ active users.<br><br>
+          <b>Honor Badge System</b> — Leading multi-game visual style frameworks across battle royale, MMORPG, and casual mobile genres. Defining badge hierarchies, rarity systems, and gamified progression mechanics.</p>
           <div class="project-meta">
             <span class="meta-badge">IP Design</span>
             <span class="meta-badge">3D Assets</span>
-            <span class="meta-badge">AI Pipeline</span>
-            <span>5 pages</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Badge System -->
-      <div class="project-card" onclick="openLightbox('badge_system', 'Honor Badge System', 'Multi-Game Visual Framework | Battle Royale · MMORPG · Casual')">
-        <span class="view-hint">View Project &#8599;</span>
-        <img src="images/badge_system_cover.png" alt="Badge System" class="project-thumb" loading="lazy">
-        <div class="project-info">
-          <h3>Honor Badge System</h3>
-          <p class="desc">Leading multi-game visual style frameworks across battle royale, MMORPG, and casual mobile genres. Defining badge hierarchies, rarity systems, and progression mechanics.</p>
-          <div class="project-meta">
             <span class="meta-badge">Design System</span>
             <span class="meta-badge">Gamification</span>
-            <span class="meta-badge">Multi-Genre</span>
-            <span>13 pages</span>
+            <span class="meta-badge">AI Pipeline</span>
+            <span>18 pages</span>
           </div>
         </div>
       </div>
@@ -689,20 +682,22 @@
 </div>
 
 <script>
-// Project page counts (must match actual images)
-const projects = {
-  dance_space:         4,
-  god_man_garden:      4,
-  to_gather:           7,
-  kidnapped_time:      4,
-  binge_bingo:         3,
-  sticker_system:      5,
-  badge_system:       13,
-  christmas_campaign: 13,
-  open_claw:          12,
-  live_fest:           8,
-  pet_pop:            18
-};
+  // Project page counts (must match actual images)
+  const projects = {
+    dance_space:         4,
+    god_man_garden:      4,
+    to_gather:           7,
+    kidnapped_time:      4,
+    binge_bingo:         3,
+    tencent_ieg:         { type: 'merged', parts: [
+      { id: 'sticker_system', count: 5, label: 'Xinyue Club Sticker System' },
+      { id: 'badge_system',  count: 13, label: 'Honor Badge System' }
+    ]},
+    christmas_campaign: 13,
+    open_claw:          12,
+    live_fest:           8,
+    pet_pop:            18
+  };
 
 function openLightbox(id, title, subtitle) {
   const lb = document.getElementById('lightbox');
@@ -710,11 +705,28 @@ function openLightbox(id, title, subtitle) {
   document.getElementById('lbTitle').textContent = title;
   document.getElementById('lbSubtitle').textContent = subtitle;
 
-  const count = projects[id] || 4;
   let html = '';
-  for (let i = 0; i < count; i++) {
-    html += `<img src="images/${id}_${i}.png" alt="${title} Page ${i+1}" class="lb-image" loading="lazy" style="animation-delay:${i*0.05}s">`;
-    if (count > 1 && i < count - 1) html += `<div class="lb-page-label">&#8212; ${i+1} / ${count} &#8212;</div>`;
+  const proj = projects[id];
+
+  if (typeof proj === 'object' && proj.type === 'merged') {
+    // Merged project: show all parts with section labels
+    let total = 0;
+    proj.parts.forEach((part, pi) => {
+      if (pi > 0) {
+        html += `<div style="color:#fff;font-size:1em;font-weight:700;margin:40px 0 16px;letter-spacing:-0.3px;">&#8212; ${part.label} &#8212;</div>`;
+      }
+      for (let i = 0; i < part.count; i++) {
+        total++;
+        html += `<img src="images/${part.id}_${i}.png" alt="${title} Page ${total}" class="lb-image" loading="lazy" style="animation-delay:${total*0.04}s">`;
+        if (i < part.count - 1) html += `<div class="lb-page-label">${i+1} / ${part.count}</div>`;
+      }
+    });
+  } else {
+    const count = proj || 4;
+    for (let i = 0; i < count; i++) {
+      html += `<img src="images/${id}_${i}.png" alt="${title} Page ${i+1}" class="lb-image" loading="lazy" style="animation-delay:${i*0.05}s">`;
+      if (count > 1 && i < count - 1) html += `<div class="lb-page-label">&#8212; ${i+1} / ${count} &#8212;</div>`;
+    }
   }
   body.innerHTML = html;
   lb.classList.add('active');
